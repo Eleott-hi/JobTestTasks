@@ -1,0 +1,20 @@
+# GREP: load
+1
+wallet.json
+# GREP: update
+5
+1df63fb0-18c1-40f0-b845-540f1e506241
+# GREP: category
+
+# GREP: amount
+502.123
+# GREP: description
+
+# GREP: date
+
+# GREP: save
+2
+wallet.json
+# GREP: show
+3
+q
