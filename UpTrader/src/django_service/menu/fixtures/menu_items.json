@@ -1,0 +1,202 @@
+[
+    {
+        "model": "menu.menuitem",
+        "pk": 1,
+        "fields": {
+            "name": "Main Menu",
+            "parent": null,
+            "url": "",
+            "named_url": ""
+        }
+    },
+    {
+        "model": "menu.menuitem",
+        "pk": 2,
+        "fields": {
+            "name": "Products",
+            "parent": 1,
+            "url": "products",
+            "named_url": ""
+        }
+    },
+    {
+        "model": "menu.menuitem",
+        "pk": 3,
+        "fields": {
+            "name": "About Us",
+            "parent": 1,
+            "url": "about-us",
+            "named_url": ""
+        }
+    },
+    {
+        "model": "menu.menuitem",
+        "pk": 4,
+        "fields": {
+            "name": "Contact",
+            "parent": 1,
+            "url": "contact",
+            "named_url": ""
+        }
+    },
+    {
+        "model": "menu.menuitem",
+        "pk": 5,
+        "fields": {
+            "name": "Product 1",
+            "parent": 2,
+            "url": "product-1",
+            "named_url": ""
+        }
+    },
+    {
+        "model": "menu.menuitem",
+        "pk": 6,
+        "fields": {
+            "name": "Product 2",
+            "parent": 2,
+            "url": "product-2",
+            "named_url": ""
+        }
+    },
+    {
+        "model": "menu.menuitem",
+        "pk": 7,
+        "fields": {
+            "name": "Electronics",
+            "parent": 2,
+            "url": "electronics",
+            "named_url": ""
+        }
+    },
+    {
+        "model": "menu.menuitem",
+        "pk": 8,
+        "fields": {
+            "name": "Clothing",
+            "parent": 2,
+            "url": "clothing",
+            "named_url": ""
+        }
+    },
+    {
+        "model": "menu.menuitem",
+        "pk": 9,
+        "fields": {
+            "name": "Mobile Phones",
+            "parent": 7,
+            "url": "mobile-phones",
+            "named_url": ""
+        }
+    },
+    {
+        "model": "menu.menuitem",
+        "pk": 10,
+        "fields": {
+            "name": "Laptops",
+            "parent": 7,
+            "url": "laptops",
+            "named_url": ""
+        }
+    },
+    {
+        "model": "menu.menuitem",
+        "pk": 11,
+        "fields": {
+            "name": "Men's Clothing",
+            "parent": 8,
+            "url": "mens-clothing",
+            "named_url": ""
+        }
+    },
+    {
+        "model": "menu.menuitem",
+        "pk": 12,
+        "fields": {
+            "name": "Women's Clothing",
+            "parent": 8,
+            "url": "womens-clothing",
+            "named_url": ""
+        }
+    },
+    {
+        "model": "menu.menuitem",
+        "pk": 13,
+        "fields": {
+            "name": "T-Shirts",
+            "parent": 11,
+            "url": "t-shirts",
+            "named_url": ""
+        }
+    },
+    {
+        "model": "menu.menuitem",
+        "pk": 14,
+        "fields": {
+            "name": "Jeans",
+            "parent": 11,
+            "url": "jeans",
+            "named_url": ""
+        }
+    },
+    {
+        "model": "menu.menuitem",
+        "pk": 15,
+        "fields": {
+            "name": "Dresses",
+            "parent": 12,
+            "url": "dresses",
+            "named_url": ""
+        }
+    },
+    {
+        "model": "menu.menuitem",
+        "pk": 16,
+        "fields": {
+            "name": "Skirts",
+            "parent": 12,
+            "url": "skirts",
+            "named_url": ""
+        }
+    },
+    {
+        "model": "menu.menuitem",
+        "pk": 17,
+        "fields": {
+            "name": "Accessories",
+            "parent": 1,
+            "url": "accessories",
+            "named_url": ""
+        }
+    },
+    {
+        "model": "menu.menuitem",
+        "pk": 18,
+        "fields": {
+            "name": "Watches",
+            "parent": 17,
+            "url": "watches",
+            "named_url": ""
+        }
+    },
+    {
+        "model": "menu.menuitem",
+        "pk": 19,
+        "fields": {
+            "name": "Bags",
+            "parent": 17,
+            "url": "bags",
+            "named_url": ""
+        }
+    },
+    {
+        "model": "menu.menuitem",
+        "pk": 20,
+        "fields": {
+            "name": "Sale",
+            "parent": 1,
+            "url": "sale",
+            "named_url": ""
+        }
+    }
+]
