@@ -1,9 +1,8 @@
-import functools
+from uuid import UUID, uuid4
 from typing import Dict, List
-from uuid import UUID
-from app.storage.IFileManager import IFileManager
 
-from app.models.WalletData import WalletData, OperationWrite, Operation
+from src.models.Models import WalletData, OperationWrite, Operation
+from src.core.Comparator import compare
 
 
 class Wallet:
@@ -15,7 +14,7 @@ class Wallet:
             if operation.id == id:
                 return operation, idx
 
-        raise Exception(f"Operation with id {id} not found")
+        raise ValueError(f"Operation with id \"{id}\" not found")
 
     def get_data(self) -> WalletData:
         return self.data.model_copy()
@@ -24,7 +23,7 @@ class Wallet:
         self.data = data.model_copy()
 
     def add_operation(self, data: OperationWrite) -> None:
-        data = Operation(**data.model_copy().model_dump())
+        data = Operation(id=uuid4(), **data.model_copy().model_dump())
         self.data.operations.append(data)
 
     def delete_operation(self, id: UUID) -> None:
@@ -38,27 +37,34 @@ class Wallet:
             **data.model_dump(),
         )
 
-    def get_operations(self, filter: Dict | None = None) -> List[Operation]:
-        operations = self.data.model_copy().operations
-
-        if filter is None:
-            return operations
+    def get_operations(self, filters: List | None = None) -> List[Operation]:
+        if filters is None:
+            filters = []
 
         def is_match(operation: Operation) -> bool:
             operation = operation.model_dump()
 
-            for key, value in filter.items():
-                if key not in operation:
-                    raise Exception(f"Invalid filter key {key}")
-
-                if operation.get(key, None) != value:
+            for filter in filters:
+                compare_field = filter.Meta.compare_field
+                is_match = compare(
+                    operation[compare_field], filter.value, filter.comparator
+                )
+                if not is_match:
                     return False
 
             return True
 
-        filtered_operations = [i for i in operations if is_match(i)]
+        filtered_operations = list(filter(is_match, self.data.operations))
         return filtered_operations
 
-    def get_operation_by_id(self, id: UUID) -> Operation:
+    def get_operation(self, id: UUID) -> Operation:
         operation, _ = self.__get_operation_by_id(id)
         return operation.model_copy()
+
+    def check_id(self, id: UUID) -> bool:
+        try:
+            self.__get_operation_by_id(id)
+            return True
+
+        except ValueError:
+            return False
