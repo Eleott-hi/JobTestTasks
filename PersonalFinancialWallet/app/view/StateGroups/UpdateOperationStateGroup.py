@@ -1,8 +1,8 @@
 from datetime import date
 from typing import Dict
 from uuid import UUID
-from src.core.StateMachine import StateMachine
-from src.models.Models import Operation, OperationCategory
+from app.core.StateMachine import StateMachine
+from app.models.Models import Operation, OperationCategory
 
 
 def parse_id(data: dict) -> str:

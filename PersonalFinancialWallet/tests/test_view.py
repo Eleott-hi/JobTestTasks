@@ -1,13 +1,13 @@
 from datetime import date
 from uuid import uuid4
 import pytest
-from src.models.Models import Operation, OperationWrite, WalletData
-from src.core.FileIO.FileManager import FileManager
-from src.Application import Application
-from src.core.Backend import Backend
-from src.core.Wallet import Wallet
-import src.view.StateGroups.AddOperationStateGroup as AddSG
-import src.view.StateGroups.UpdateOperationStateGroup as UpdateSG
+from app.models.Models import Operation, OperationWrite, WalletData
+from app.core.FileIO.FileManager import FileManager
+from app.Application import Application
+from app.core.Backend import Backend
+from app.core.Wallet import Wallet
+import app.view.StateGroups.AddOperationStateGroup as AddSG
+import app.view.StateGroups.UpdateOperationStateGroup as UpdateSG
 
 
 @pytest.fixture

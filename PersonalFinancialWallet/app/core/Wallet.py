@@ -1,8 +1,8 @@
 from uuid import UUID, uuid4
 from typing import List
 
-from src.models.Models import WalletData, OperationWrite, Operation
-from src.core.Comparator import compare
+from app.models.Models import WalletData, OperationWrite, Operation
+from app.core.Comparator import compare
 
 
 class Wallet:

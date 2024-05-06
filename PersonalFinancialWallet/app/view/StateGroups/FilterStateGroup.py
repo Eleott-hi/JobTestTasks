@@ -1,6 +1,6 @@
 from typing import Dict, Union
-from src.core.StateMachine import StateMachine
-from src.models.Filters import AmountFilter, CategoryFilter, DateFilter, DescriptionFilter
+from app.core.StateMachine import StateMachine
+from app.models.Filters import AmountFilter, CategoryFilter, DateFilter, DescriptionFilter
 
 
 FILTER_PROTMPT = """

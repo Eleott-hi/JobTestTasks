@@ -1,8 +1,8 @@
 from typing import List
 from uuid import UUID
-from src.core.FileIO.FileManager import FileManager
-from src.models.Models import Operation, OperationWrite, WalletData
-from src.core.Wallet import Wallet
+from app.core.FileIO.FileManager import FileManager
+from app.models.Models import Operation, OperationWrite, WalletData
+from app.core.Wallet import Wallet
 
 
 class Backend:

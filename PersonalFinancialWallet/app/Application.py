@@ -1,5 +1,5 @@
-from src.core.Backend import Backend
-from src.view.MainMenu import MainMenu
+from app.core.Backend import Backend
+from app.view.MainMenu import MainMenu
 
 
 class Application:

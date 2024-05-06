@@ -1,6 +1,6 @@
 from typing import Callable, Dict
 from uuid import UUID
-from src.core.StateMachine import StateMachine
+from app.core.StateMachine import StateMachine
 
 
 def parse_id(data: dict) -> str:

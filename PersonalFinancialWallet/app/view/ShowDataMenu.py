@@ -3,10 +3,10 @@ from consolemenu import MenuFormatBuilder, ConsoleMenu
 from consolemenu.format import MenuBorderStyleType
 from consolemenu.items import FunctionItem
 
-from src.core.Backend import Backend
-from src.models.Models import Operation
+from app.core.Backend import Backend
+from app.models.Models import Operation
 
-import src.view.StateGroups.FilterStateGroup as FilterSG
+import app.view.StateGroups.FilterStateGroup as FilterSG
 
 
 class ShowDataMenu:

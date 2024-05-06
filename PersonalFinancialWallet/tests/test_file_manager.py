@@ -2,8 +2,8 @@ from typing import Any
 from unittest.mock import patch
 import pytest
 from pydantic import BaseModel
-from src.core.FileIO.file_managers.IFileManager import IFileManager
-from src.core.FileIO.FileManager import FileManager
+from app.core.FileIO.file_managers.IFileManager import IFileManager
+from app.core.FileIO.FileManager import FileManager
 from pathlib import Path
 
 
@@ -28,7 +28,7 @@ def mock_data():
 @pytest.fixture
 def mock_file_manager(monkeypatch):
     monkeypatch.setattr(
-        "src.core.FileIO.FileManager.JsonFileManager",
+        "app.core.FileIO.FileManager.JsonFileManager",
         MockSpecificFileManager,
     )
 

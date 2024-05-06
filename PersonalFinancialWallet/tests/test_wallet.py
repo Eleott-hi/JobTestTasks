@@ -1,14 +1,14 @@
 from datetime import date
 import pytest
 from uuid import uuid4
-from src.models.Models import OperationCategory,  OperationWrite, Operation
-from src.models.Filters import (
+from app.models.Models import OperationCategory,  OperationWrite, Operation
+from app.models.Filters import (
     CategoryFilter,
     DateFilter,
     AmountFilter,
     DescriptionFilter,
 )
-from src.core.Wallet import Wallet
+from app.core.Wallet import Wallet
 
 operation1 = OperationWrite(
     category="income",

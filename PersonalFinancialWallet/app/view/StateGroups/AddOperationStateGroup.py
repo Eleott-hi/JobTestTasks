@@ -1,6 +1,6 @@
 from datetime import date
 from typing import Dict
-from src.core.StateMachine import StateMachine
+from app.core.StateMachine import StateMachine
 
 
 def parse_category(data: dict) -> str:

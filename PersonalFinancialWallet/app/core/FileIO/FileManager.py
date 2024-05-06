@@ -2,8 +2,8 @@ from typing import Annotated, Any, Dict
 from pathlib import Path
 from pydantic import BaseModel
 
-from src.core.FileIO.file_managers.JsonFileManager import JsonFileManager
-from src.core.FileIO.file_managers.IFileManager import IFileManager
+from app.core.FileIO.file_managers.JsonFileManager import JsonFileManager
+from app.core.FileIO.file_managers.IFileManager import IFileManager
 
 
 class FileManager:

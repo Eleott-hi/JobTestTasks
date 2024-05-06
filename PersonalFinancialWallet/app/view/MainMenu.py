@@ -1,13 +1,13 @@
 from consolemenu import MenuFormatBuilder, ConsoleMenu
 from consolemenu.format import MenuBorderStyleType
 from consolemenu.items import FunctionItem, SubmenuItem
-from src.core.Backend import Backend
-from src.models.Models import Operation, OperationWrite
+from app.core.Backend import Backend
+from app.models.Models import Operation, OperationWrite
 
-from src.view.ShowDataMenu import ShowDataMenu
-import src.view.StateGroups.AddOperationStateGroup as AddSG
-import src.view.StateGroups.UpdateOperationStateGroup as UpdateSG
-import src.view.StateGroups.DeleteOperationStateGroup as DeleteSG
+from app.view.ShowDataMenu import ShowDataMenu
+import app.view.StateGroups.AddOperationStateGroup as AddSG
+import app.view.StateGroups.UpdateOperationStateGroup as UpdateSG
+import app.view.StateGroups.DeleteOperationStateGroup as DeleteSG
 
 
 class MainMenu:

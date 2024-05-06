@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from enum import Enum
 from datetime import date
 
-from src.models.Models import OperationCategory
+from app.models.Models import OperationCategory
 
 
 class CommonComporator(str, Enum):
