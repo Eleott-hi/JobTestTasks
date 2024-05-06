@@ -1,7 +1,4 @@
-from enum import Enum
 from typing import Any
-from pydantic import BaseModel
-
 
 def compare(original_value: Any, compared_value: Any, comparator: str) -> bool:
     match comparator:

@@ -1,14 +1,13 @@
 from datetime import date
 import pytest
 from uuid import uuid4
-from src.models.Models import OperationCategory, WalletData, OperationWrite, Operation
+from src.models.Models import OperationCategory,  OperationWrite, Operation
 from src.models.Filters import (
     CategoryFilter,
     DateFilter,
     AmountFilter,
     DescriptionFilter,
 )
-from src.core.Comparator import compare
 from src.core.Wallet import Wallet
 
 operation1 = OperationWrite(

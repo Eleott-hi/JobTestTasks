@@ -1,5 +1,7 @@
+from typing import List
+from uuid import UUID
 from src.core.FileIO.FileManager import FileManager
-from src.models.Models import WalletData
+from src.models.Models import Operation, OperationWrite, WalletData
 from src.core.Wallet import Wallet
 
 
@@ -18,3 +20,21 @@ class Backend:
 
     def get_wallet(self) -> Wallet:
         return self.__wallet
+
+    def add_operation(self, data: OperationWrite):
+        self.__wallet.add_operation(data)
+
+    def delete_operation(self, id: UUID):
+        self.__wallet.delete_operation(id)
+
+    def update_operation(self, data: Operation):
+        self.__wallet.update_operation(data)
+
+    def get_operations(self, filters: List | None = None) -> List[Operation]:
+        return self.__wallet.get_operations(filters)
+    
+    def get_operation(self, id: UUID) -> Operation:
+        return self.__wallet.get_operation(id)
+    
+    def check_id(self, id: UUID) -> bool:
+        return self.__wallet.check_id(id)

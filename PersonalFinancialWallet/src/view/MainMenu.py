@@ -1,19 +1,12 @@
-from pathlib import Path
-import sys
-from typing import Any, Callable
-from uuid import UUID
-
-from consolemenu import MenuFormatBuilder, ConsoleMenu, Screen, SelectionMenu
+from consolemenu import MenuFormatBuilder, ConsoleMenu
 from consolemenu.format import MenuBorderStyleType
-from consolemenu.items import MenuItem, FunctionItem, SubmenuItem
+from consolemenu.items import FunctionItem, SubmenuItem
 from src.core.Backend import Backend
-from src.core.StateMachine import StateMachine
 from src.models.Models import Operation, OperationWrite
 
 from src.view.ShowDataMenu import ShowDataMenu
 import src.view.StateGroups.AddOperationStateGroup as AddSG
 import src.view.StateGroups.UpdateOperationStateGroup as UpdateSG
-from src.view.StateGroups.UpdateOperationStateGroup import parse_id
 import src.view.StateGroups.DeleteOperationStateGroup as DeleteSG
 
 
@@ -60,7 +53,7 @@ class MainMenu:
 
     def update_menu(self):
         self.menu.epilogue_text = "Wallet operations: {}".format(
-            len(self.__backend.get_wallet().get_operations())
+            len(self.__backend.get_operations())
         )
 
     def save_data(self):
@@ -116,14 +109,14 @@ class MainMenu:
             return
 
         operation = OperationWrite(**data)
-        self.__backend.get_wallet().add_operation(operation)
+        self.__backend.add_operation(operation)
 
         self.update_menu()
         print("Operation added successfully")
 
     def update_operation(self):
         sm = UpdateSG.get_state_machine(
-            data=dict(get_operation_cb=self.__backend.get_wallet().get_operation)
+            data=dict(get_operation_cb=self.__backend.get_operation)
         )
         state, data = sm.process()
 
@@ -133,14 +126,12 @@ class MainMenu:
 
         del data["get_operation_cb"]
 
-        self.__backend.get_wallet().update_operation(Operation(**data))
+        self.__backend.update_operation(Operation(**data))
         self.update_menu()
         print("Operation updated successfully")
 
     def delete_operation(self):
-        sm = DeleteSG.get_state_machine(
-            data=dict(id_checker=self.__backend.get_wallet().check_id)
-        )
+        sm = DeleteSG.get_state_machine(data=dict(id_checker=self.__backend.check_id))
 
         state, data = sm.process()
 
@@ -150,6 +141,6 @@ class MainMenu:
 
         del data["id_checker"]
 
-        self.__backend.get_wallet().delete_operation(**data)
+        self.__backend.delete_operation(**data)
         self.update_menu()
         print("Operation deleted successfully")

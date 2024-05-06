@@ -1,19 +1,12 @@
-from pathlib import Path
-import sys
-from typing import Any, Callable, List
-from uuid import UUID
-
-from consolemenu import MenuFormatBuilder, ConsoleMenu, Screen, SelectionMenu
+from typing import List
+from consolemenu import MenuFormatBuilder, ConsoleMenu
 from consolemenu.format import MenuBorderStyleType
-from consolemenu.items import MenuItem, FunctionItem
-from src.core.Backend import Backend
-from src.core.StateMachine import StateMachine
-from src.models.Models import Operation, OperationWrite
+from consolemenu.items import FunctionItem
 
-import src.view.StateGroups.AddOperationStateGroup as AddSG
+from src.core.Backend import Backend
+from src.models.Models import Operation
+
 import src.view.StateGroups.FilterStateGroup as FilterSG
-import src.view.StateGroups.UpdateOperationStateGroup as UpdateSG
-from src.view.StateGroups.UpdateOperationStateGroup import parse_id
 
 
 class ShowDataMenu:

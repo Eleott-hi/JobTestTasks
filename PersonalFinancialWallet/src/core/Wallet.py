@@ -1,9 +1,8 @@
 from uuid import UUID, uuid4
-from typing import Dict, List
+from typing import List
 
 from src.models.Models import WalletData, OperationWrite, Operation
 from src.core.Comparator import compare
-
 
 class Wallet:
     def __init__(self) -> None:

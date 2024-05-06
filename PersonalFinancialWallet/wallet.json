@@ -1,28 +1,28 @@
 {
     "operations": [
         {
-            "amount": 100,
+            "amount": 100.0,
             "category": "income",
             "description": "Description 1",
             "operation_date": "2021-01-01",
             "id": "1df63fb0-18c1-40f0-b845-540f1e506241"
         },
         {
-            "amount": 200,
+            "amount": 200.0,
             "category": "income",
             "description": "Description 2",
             "operation_date": "2022-01-01",
             "id": "1df63fb0-18c1-40f0-b845-540f1e506241"
         },
         {
-            "amount": 300,
+            "amount": 300.0,
             "category": "income",
             "description": "Description 3",
             "operation_date": "2023-01-01",
             "id": "1df63fb0-18c1-40f0-b845-540f1e506241"
         },
         {
-            "amount": 400,
+            "amount": 400.0,
             "category": "income",
             "description": "Description 4",
             "operation_date": "2024-01-01",
