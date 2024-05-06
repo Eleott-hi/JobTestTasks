@@ -16,4 +16,4 @@ run:
 
 test:
 	clear
-	pytest -q tests
+	pytest tests -q --cov=app --cov-report html
