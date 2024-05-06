@@ -105,7 +105,7 @@ def parse_operation_date(data: dict) -> str:
         return "quit"
 
     try:
-        data["operation_date"] = date.fromisoformat(res) if res else date.today()
+        data["operation_date"] = date.fromisoformat(res) if res else default
     except ValueError:
         print("Invalid date. Try again")
         return "date"

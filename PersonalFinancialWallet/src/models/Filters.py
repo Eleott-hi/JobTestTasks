@@ -67,4 +67,4 @@ class CategoryFilter(BaseModel):
         compare_field = "category"
 
     def __str__(self) -> str:
-        return f"category {self.comparator.value} {self.value}"
+        return f"category {self.comparator.value} {self.value.value}"

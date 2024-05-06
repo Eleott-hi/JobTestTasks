@@ -1,53 +1,32 @@
 {
     "operations": [
         {
-            "amount": 502.123,
-            "category": "outcome",
-            "description": "Description 2",
-            "operation_date": "2024-03-03",
+            "amount": 100,
+            "category": "income",
+            "description": "Description 1",
+            "operation_date": "2021-01-01",
             "id": "1df63fb0-18c1-40f0-b845-540f1e506241"
         },
         {
-            "amount": 345.3,
-            "category": "outcome",
-            "description": "Description 2",
-            "operation_date": "2024-03-03",
-            "id": "50fd513a-8d79-4f24-905a-50fb46936e70"
+            "amount": 200,
+            "category": "income",
+            "description": "Description 21",
+            "operation_date": "2022-01-01",
+            "id": "1df63fb0-18c1-40f0-b845-540f1e506241"
         },
         {
-            "amount": 345.3,
-            "category": "outcome",
-            "description": "Description 2",
-            "operation_date": "2024-03-03",
-            "id": "37d31166-bdb1-4796-a42c-aaa0d770ac5f"
+            "amount": 300,
+            "category": "income",
+            "description": "Description3",
+            "operation_date": "2023-01-01",
+            "id": "1df63fb0-18c1-40f0-b845-540f1e506241"
         },
         {
-            "amount": 345.3,
-            "category": "outcome",
-            "description": "Description 2",
-            "operation_date": "2024-03-03",
-            "id": "52f847a8-c41c-4722-8f6a-173fecb2a71e"
-        },
-        {
-            "amount": 345.3,
-            "category": "outcome",
-            "description": "Description 2",
-            "operation_date": "2024-03-03",
-            "id": "6897a660-e20f-4ce5-8150-ccc84984ba52"
-        },
-        {
-            "amount": 345.3,
-            "category": "outcome",
-            "description": "Description 2",
-            "operation_date": "2024-03-03",
-            "id": "fb91ba87-4042-4884-be7d-ea4db9123e78"
-        },
-        {
-            "amount": 345.3,
-            "category": "outcome",
-            "description": "Description 2",
-            "operation_date": "2024-03-03",
-            "id": "2f832158-45e3-4d7b-be94-1f56e3ad0726"
+            "amount": 400,
+            "category": "income",
+            "description": "Description 4",
+            "operation_date": "2024-01-01",
+            "id": "1df63fb0-18c1-40f0-b845-540f1e506241"
         }
     ]
 }

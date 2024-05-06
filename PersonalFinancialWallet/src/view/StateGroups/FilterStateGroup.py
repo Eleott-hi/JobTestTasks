@@ -4,30 +4,28 @@ from src.models.Filters import AmountFilter, CategoryFilter, DateFilter, Descrip
 
 
 FILTER_PROTMPT = """
-Usage: 
-                <Filter by> <Comporator> <Value>
-Filter by: 
-                1 - category, 2 - amount, 3 - date, 4 - description
-Comporators:
-                For category: == , !=
-                For amount and date: == , !=, <, >, <=, >=
-                For string: == , !=, includes, excludes
-<Value>: 
-                number or string to compare with
-Example: 
-                1 != income
-                2 > 100
-                3 >= 2022-01-01
-                4 == description
-                4 includes description1 
+    Usage:          <Filter by> <Comporator> <Value>
 
-Press Q/q to Quit
+    <Filter by>:    1 - category, 2 - amount, 3 - date, 4 - description
 
-"""
+    <Comporators>:  For category: == , !=
+                    For amount and date: == , !=, <, >, <=, >=
+                    For string: == , !=, includes, excludes
+
+    <Value>:        value to compare with
+
+    Example:        1 != income
+                    2 > 100
+                    3 >= 2022-01-01
+                    4 == description
+                    4 includes description1 
+
+    Press Q/q to Quit
+    Enter filter: """
 
 
 def parse_filter(data: dict) -> str:
-    res = input(FILTER_PROTMPT + "Enter filter: ")
+    res = input(FILTER_PROTMPT)
 
     if "q" == res.lower():
         return "quit"
@@ -35,7 +33,7 @@ def parse_filter(data: dict) -> str:
     tokens = res.strip().split()
 
     if len(tokens) != 3:
-        print("Invalid filter. Should be: <Filter by> <Comporator> <Value>")
+        print("\nInvalid filter. Should be: <Filter by> <Comporator> <Value>")
         return "filter"
 
     field, comp, value = tokens
@@ -47,7 +45,7 @@ def parse_filter(data: dict) -> str:
     }
 
     if field not in fields:
-        print(f'Invalid filter by value: "{field}". Should be between 1 - 4')
+        print(f'\nInvalid filter by value: "{field}". Should be between 1 - 4')
         return "filter"
 
     try:
@@ -59,7 +57,7 @@ def parse_filter(data: dict) -> str:
         data["filter"] = filter
 
     except ValueError as e:
-        print(f"Invalid filter: {e}")
+        print(f"\nInvalid filter: {e}")
         return "filter"
 
     return "end"

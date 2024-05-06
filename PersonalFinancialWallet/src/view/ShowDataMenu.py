@@ -49,11 +49,11 @@ class ShowDataMenu:
         self.menu.epilogue_text = f"Current filters: {filters}"
 
     def show_without_filters(self):
-        operations = self.backend.wallet.get_operations()
+        operations = self.backend.get_wallet().get_operations()
         self.show_data(operations)
 
     def show_with_filters(self):
-        operations = self.backend.wallet.get_operations(self.filters)
+        operations = self.backend.get_wallet().get_operations(self.filters)
         self.show_data(operations)
 
     def show_data(self, operations: List[Operation]):
@@ -73,6 +73,7 @@ class ShowDataMenu:
         state, data = sm.process()
 
         if state == "quit":
+            print("Cancelled")
             return
 
         self.filters.append(data["filter"])

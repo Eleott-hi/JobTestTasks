@@ -6,7 +6,7 @@ ENV := . .env/bin/activate
 
 PIPE := cat test.txt | grep -v "# GREP" 
 
-all: run
+all: test
 
 install:
 	pip install -r requirements.txt
@@ -20,4 +20,5 @@ run:
 	python3 src/main.py
 
 test:
-	pytest tests -q
+	clear
+	pytest -q tests

@@ -1,3 +1,4 @@
 pydantic
 console-menu
 pytest
+pytest-mock 

@@ -1,27 +1,25 @@
-
-from typing import Annotated, Any
+from typing import Annotated, Any, Dict
 from pathlib import Path
 from pydantic import BaseModel
 
 from src.core.FileIO.impl.JsonFileManager import JsonFileManager
+from src.core.FileIO.IFileManager import IFileManager
+
 
 class FileManager:
     def __init__(self):
-        self.file_managers = {".json": JsonFileManager()}
+        self.file_managers: Dict[str, IFileManager] = {".json": JsonFileManager()}
 
     def load(self, filename: str, data_type: Annotated[Any, BaseModel]) -> Any:
         filename = Path(filename)
 
-        if not filename.exists():
-            raise RuntimeError(f"File not found: {filename}" )
-
-        extension = filename.suffix.lower()
+        extension = filename.suffix
         if extension not in self.file_managers:
-            raise RuntimeError(f"File extension not supported: \"{extension}\"" )
+            raise ValueError(f'File extension not supported: "{extension}"')
 
         file_manager = self.file_managers[extension]
         wallet_data = file_manager.load(filename, data_type)
-        
+
         return wallet_data
 
     def save(self, filename: str, data: BaseModel):
@@ -30,7 +28,7 @@ class FileManager:
         extension = filename.suffix.lower()
 
         if extension not in self.file_managers:
-            raise RuntimeError("File extension not implemented yet: " + extension)
+            raise ValueError("File extension not implemented yet: " + extension)
 
         file_manager = self.file_managers[extension]
         file_manager.save(filename, data)

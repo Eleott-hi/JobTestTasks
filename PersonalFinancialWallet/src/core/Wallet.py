@@ -14,7 +14,7 @@ class Wallet:
             if operation.id == id:
                 return operation, idx
 
-        raise ValueError(f"Operation with id \"{id}\" not found")
+        raise ValueError(f'Operation with id "{id}" not found')
 
     def get_data(self) -> WalletData:
         return self.data.model_copy()
@@ -54,7 +54,9 @@ class Wallet:
 
             return True
 
-        filtered_operations = list(filter(is_match, self.data.operations))
+        filtered_operations = [
+            op.model_copy() for op in filter(is_match, self.data.operations)
+        ]
         return filtered_operations
 
     def get_operation(self, id: UUID) -> Operation:
