@@ -16,9 +16,9 @@ FILTER_PROTMPT = """
 
     Example:        1 != income
                     2 > 100
-                    3 >= 2022-01-01
-                    4 == description
-                    4 includes description1 
+                    3 >= 2023-01-01
+                    4 == Description 1
+                    4 includes 2 
 
     Press Q/q to Quit
     Enter filter: """
@@ -30,7 +30,7 @@ def parse_filter(data: dict) -> str:
     if "q" == res.lower():
         return "quit"
 
-    tokens = res.strip().split()
+    tokens = res.strip().split(maxsplit=2)
 
     if len(tokens) != 3:
         print("\nInvalid filter. Should be: <Filter by> <Comporator> <Value>")

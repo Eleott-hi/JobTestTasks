@@ -10,14 +10,14 @@
         {
             "amount": 200,
             "category": "income",
-            "description": "Description 21",
+            "description": "Description 2",
             "operation_date": "2022-01-01",
             "id": "1df63fb0-18c1-40f0-b845-540f1e506241"
         },
         {
             "amount": 300,
             "category": "income",
-            "description": "Description3",
+            "description": "Description 3",
             "operation_date": "2023-01-01",
             "id": "1df63fb0-18c1-40f0-b845-540f1e506241"
         },

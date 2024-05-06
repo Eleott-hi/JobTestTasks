@@ -56,7 +56,7 @@ class DescriptionFilter(BaseModel):
         compare_field = "description"
 
     def __str__(self) -> str:
-        return f"description {self.comparator.value} {self.value}"
+        return f"description {self.comparator.value} \"{self.value}\""
 
 
 class CategoryFilter(BaseModel):
