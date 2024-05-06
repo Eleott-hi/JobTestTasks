@@ -2,7 +2,7 @@ from typing import Any
 from unittest.mock import patch
 import pytest
 from pydantic import BaseModel
-from src.core.FileIO.IFileManager import IFileManager
+from src.core.FileIO.file_managers.IFileManager import IFileManager
 from src.core.FileIO.FileManager import FileManager
 from pathlib import Path
 

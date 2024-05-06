@@ -13,7 +13,7 @@ class MockModel(BaseModel):
 
 @pytest.fixture
 def json_file_manager():
-    from src.core.FileIO.impl.JsonFileManager import JsonFileManager
+    from src.core.FileIO.file_managers.JsonFileManager import JsonFileManager
 
     return JsonFileManager()
 
