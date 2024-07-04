@@ -8,11 +8,12 @@
         "port": "5432"
     },
     "s2": {
-        "url": "https://ru.wikipedia.org/wiki",
+        "url": "https://jsonplaceholder.typicode.com",
         "login": "user",
         "password": "pass",
         "timeout": 5
     },
     "threads": 2,
+    "buckets": 4,
     "log_level": "INFO"
 }

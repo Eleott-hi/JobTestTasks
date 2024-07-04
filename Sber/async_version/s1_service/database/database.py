@@ -2,6 +2,7 @@ import logging
 
 import models.QueueRequest, models.QueueResponse
 from models.BaseModel import Base
+from contextlib import asynccontextmanager
 from sqlalchemy import create_engine, Engine
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker
@@ -40,9 +41,10 @@ async def fill_db(cls, data: list):
         await session.commit()
 
 
-# @asynccontextmanager
+@asynccontextmanager
 async def get_session() -> AsyncSession:
     async with async_session() as session:
+
         logger.info("Session created!")
         yield session
         logger.info("Session closed")

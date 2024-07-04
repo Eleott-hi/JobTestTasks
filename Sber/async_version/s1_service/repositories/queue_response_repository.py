@@ -17,13 +17,18 @@ class QueryResponseRepository:
         session: AsyncSession = Depends(get_session),
     ):
         self.session = session
+        pass
 
     async def create(self, responses: List[QueueResponse]) -> None:
-        for response in responses:
-            self.session.add(response)
+        async with get_session() as session:
+            self.session = session
 
-        try:
-            await self.session.commit()
-        except Exception as e:
-            logger.error(e)
-            raise HTTPException(status_code=500, detail="Internal Server Error")
+            for r in responses:
+                self.session.add(r)
+
+            try:
+                await self.session.commit()
+
+            except Exception as e:
+                logger.error(e)
+                raise HTTPException(status_code=500, detail="Internal Server Error")

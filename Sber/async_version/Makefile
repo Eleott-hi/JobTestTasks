@@ -20,6 +20,7 @@ clean_db:
 	-docker rm   $(MONGO_DB_CONTAINER_NAME)
 	-docker stop $(POSTGRES_CONTAINER_NAME)
 	-docker rm   $(POSTGRES_CONTAINER_NAME)
+	-rm -rf s1_service/*.db
 
 prune:
 	docker system prune -a

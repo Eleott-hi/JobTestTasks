@@ -6,7 +6,6 @@ from enum import Enum as PyEnum
 
 class RequestStatus(str, PyEnum):
     NOT_PROCESSED = "not_processed"
-    PENDING = "pending"
     PROCESSED = "processed"
 
 

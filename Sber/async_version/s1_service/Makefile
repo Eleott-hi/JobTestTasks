@@ -1,7 +1,7 @@
 export PYTHONUNBUFFERED=1
 export PYTHONPYCACHEPREFIX=build
 
-all: init_timesone install init_bd run
+all: init_timesone install init_db run
 
 init_timesone:
 	date
@@ -13,7 +13,7 @@ wait_for_it:
 	chmod +x ./wait-for-it.sh 
 	./wait-for-it.sh -t 120 "$$DB_SERVICE_HOST:$$DB_SERVICE_PORT" 
 
-init_bd:
+init_db:
 	python3 fill_test_db.py
 
 run:

@@ -29,31 +29,29 @@ class S1Service:
 
         self.queue_request_repository = queue_request_repository
         self.queue_response_repository = queuer_response_repository
+        self.offset = 0
 
-    async def process_requests(self, backgrounder: int):
-        offset, limit = 0, 1
+    async def process_requests(self, backgrounder: int, limit: int):
 
         async with httpx.AsyncClient(**self.client_config) as client:
             while True:
+                offset = self.offset
+                self.offset += limit
+
                 requests, has_next = await self.queue_request_repository.all(
                     offset=offset, limit=limit
                 )
-
-                print("PENDING...", requests, has_next, flush=True)
 
                 if requests:
                     tasks = [self.__fetch(client, r, backgrounder) for r in requests]
                     responses = await asyncio.gather(*tasks)
                     await self.queue_response_repository.create(responses)
-                    print("CHANGE STATUS...", requests, has_next, flush=True)
                     await self.queue_request_repository.change_status(
-                        requests, status=RequestStatus.PROCESSED
+                        requests, RequestStatus.PROCESSED
                     )
 
                 if not has_next:
                     break
-
-                offset += limit
 
     async def __fetch(
         self, client: httpx.AsyncClient, request: QueueRequest, backgrounder
@@ -68,8 +66,8 @@ class S1Service:
             )
 
             return QueueResponse(
-                status_code=response.status_code,
                 request_id=request.id,
+                status_code=response.status_code,
                 body=response.text,
                 backgrounder=backgrounder,
             )
