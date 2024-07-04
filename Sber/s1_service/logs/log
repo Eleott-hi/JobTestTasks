@@ -1,0 +1,18 @@
+ERROR: 2024-07-04 08:37:58 - services.s2_service - not enough values to unpack (expected 2, got 1)
+ERROR: 2024-07-04 09:36:03 - services.s1_service - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+ERROR: 2024-07-04 09:36:26 - services.s1_service - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+ERROR: 2024-07-04 09:39:09 - services.s1_service - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+ERROR: 2024-07-04 09:39:49 - services.s1_service - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+ERROR: 2024-07-04 09:41:12 - services.s1_service - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+ERROR: 2024-07-04 09:41:17 - services.s1_service - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+ERROR: 2024-07-04 09:41:48 - services.s1_service - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+ERROR: 2024-07-04 09:42:39 - services.s1_service - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+ERROR: 2024-07-04 09:43:31 - services.s1_service - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+ERROR: 2024-07-04 09:43:58 - services.s1_service - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+ERROR: 2024-07-04 10:02:47 - repositories.queue_request_repository - (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "uri" of relation "queue_requests" violates not-null constraint
+DETAIL:  Failing row contains (null, null, null, null, PENDING, f75f3e4d-6cb2-49c7-b0bb-58e9026e113f, 2024-07-04 10:02:47.837002, 2024-07-04 10:02:47.83701).
+[SQL: INSERT INTO queue_requests (uri, method, params, headers, status, id, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::requeststatus, $6::UUID, $7::TIMESTAMP WITHOUT TIME ZONE, $8::TIMESTAMP WITHOUT TIME ZONE)]
+[parameters: (None, None, None, None, 'PENDING', UUID('f75f3e4d-6cb2-49c7-b0bb-58e9026e113f'), datetime.datetime(2024, 7, 4, 10, 2, 47, 837002), datetime.datetime(2024, 7, 4, 10, 2, 47, 837010))]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+ERROR: 2024-07-04 10:02:47 - repositories.queue_request_repository - 500: Internal Server Error
+ERROR: 2024-07-04 10:03:47 - services.s1_service - 

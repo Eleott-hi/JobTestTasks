@@ -1,0 +1,7 @@
+ERROR: 2024-05-30 04:16:20 - middlewares.auth_middleware - 1 validation errors:
+  {'type': 'list_type', 'loc': ('response',), 'msg': 'Input should be a valid list', 'input': <coroutine object AsyncSession.execute at 0x7f6882195360>}
+
+ERROR: 2024-05-30 04:21:52 - repositories.booking_repository - (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.user_id does not exist
+[SQL: SELECT users.user_id, users.game_id, users.booking_date, users.id, users.created_at, users.updated_at 
+FROM users]
+(Background on this error at: https://sqlalche.me/e/20/f405)

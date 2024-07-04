@@ -1,0 +1,18 @@
+{
+    "database": {
+        "dialect": "postgresql",
+        "name": "postgres",
+        "user": "postgres",
+        "password": "postgres",
+        "host": "postgres_service",
+        "port": "5432"
+    },
+    "s2": {
+        "url": "https://ru.wikipedia.org/wiki",
+        "login": "user",
+        "password": "pass",
+        "timeout": 5
+    },
+    "threads": 2,
+    "log_level": "INFO"
+}

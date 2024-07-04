@@ -1,0 +1,4 @@
+ERROR: 2024-07-02 19:36:21 - services.auth_service - 404: User not found
+ERROR: 2024-07-02 20:59:42 - repositories.booking_repository - 1 validation error for BookingFilters
+  Input should be a valid dictionary or instance of BookingFilters [type=model_type, input_value=BookingRequest(game_id=UU...tetime.date(2024, 7, 3)), input_type=BookingRequest]
+    For further information visit https://errors.pydantic.dev/2.7/v/model_type

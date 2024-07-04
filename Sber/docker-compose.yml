@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  postgres_service:
+    image: postgres:16
+    container_name: postgres_service
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./postgres_service:/docker-entrypoint-initdb.d
+    restart: on-failure
+    ports:
+      - 5432:5432
+
+  s1_service:
+    build: ./s1_service
+    container_name: s1_service
+    working_dir: /app
+    volumes:
+      - ./s1_service:/app
+    command: bash -c "make"
+    restart: on-failure
+    ports:
+      - 8000:8000
+
