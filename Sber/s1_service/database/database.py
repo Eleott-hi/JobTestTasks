@@ -1,4 +1,5 @@
 import logging
+from typing import AsyncGenerator
 
 import models.QueueRequest, models.QueueResponse
 from models.BaseModel import Base
@@ -42,7 +43,7 @@ async def fill_db(cls, data: list):
 
 
 @asynccontextmanager
-async def get_session() -> AsyncSession:
+async def get_session() -> AsyncGenerator[AsyncSession, None]:
     async with async_session() as session:
 
         logger.info("Session created!")

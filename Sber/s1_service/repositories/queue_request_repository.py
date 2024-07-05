@@ -29,6 +29,7 @@ class QueryRequestRepository:
                 .order_by(QueueRequest.id)
                 .offset(offset)
                 .limit(limit + 1)
+                .where(QueueRequest.status == RequestStatus.NOT_PROCESSED)
             )
 
             try:

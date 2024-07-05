@@ -3,7 +3,6 @@ from uuid import UUID, uuid4
 import uuid
 from sqlalchemy import DateTime, Integer, String, Enum
 from sqlalchemy.orm import declarative_base, Mapped, mapped_column
-from enum import Enum as PyEnum
 from sqlalchemy.dialects.postgresql import UUID as SQLUUID
 
 Base = declarative_base()

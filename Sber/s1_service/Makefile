@@ -9,10 +9,6 @@ init_timesone:
 install:
 	pip install -r requirements.txt
 
-wait_for_it: 
-	chmod +x ./wait-for-it.sh 
-	./wait-for-it.sh -t 120 "$$DB_SERVICE_HOST:$$DB_SERVICE_PORT" 
-
 init_db:
 	python3 fill_test_db.py
 
