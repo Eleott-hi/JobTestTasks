@@ -61,6 +61,7 @@ class S1Service:
             response = await client.request(
                 method=request.method,
                 url=request.uri,
+                content=request.body if request.body else None,
                 params=json.loads(request.params) if request.params else None,
                 headers=json.loads(request.headers) if request.headers else None,
             )

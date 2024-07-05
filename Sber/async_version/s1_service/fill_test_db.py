@@ -14,13 +14,13 @@ test_data = [
     QueueRequest(
         method="POST",
         uri="/posts",
-        params=json.dumps({"title": "foo", "body": "bar", "userId": 1}),
+        body=json.dumps({"title": "foo", "body": "bar", "userId": 1}),
         headers=json.dumps({"Content-Type": "application/json"}),
     ),
     QueueRequest(
         method="PUT",
         uri="/posts/1",
-        params=json.dumps({"id": 1, "title": "Updated Title"}),
+        body=json.dumps({"id": 1, "title": "Updated Title"}),
         headers=json.dumps({"Content-Type": "application/json"}),
     ),
     QueueRequest(
@@ -37,7 +37,7 @@ test_data = [
     QueueRequest(
         method="POST",
         uri="/comments",
-        params=json.dumps(
+        body=json.dumps(
             {
                 "postId": 1,
                 "name": "John Doe",
