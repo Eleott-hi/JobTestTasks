@@ -27,8 +27,13 @@ async def process_requests(
             s1_service.process_requests(i, config["buckets"])
             for i in range(config["threads"])
         ]
-        await asyncio.gather(*tasks)
-        config["in_progress"] = False
+
+        try:
+            await asyncio.gather(*tasks)
+        except Exception as e:
+            raise e
+        finally:
+            config["in_progress"] = False
 
     if config["in_progress"]:
         raise HTTPException(status_code=409, detail="Request is already in processing")
