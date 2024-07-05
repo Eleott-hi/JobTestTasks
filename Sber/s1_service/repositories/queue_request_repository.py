@@ -29,14 +29,17 @@ class QueryRequestRepository:
                 .order_by(QueueRequest.id)
                 .offset(offset)
                 .limit(limit + 1)
-                .where(QueueRequest.status == RequestStatus.NOT_PROCESSED)
             )
 
             try:
                 res = await session.execute(q)
                 res = res.scalars().all()
+                has_next = len(res) == limit + 1
+                res = [
+                    r for r in res[:limit] if r.status == RequestStatus.NOT_PROCESSED
+                ]
 
-                return res[:limit], len(res) == limit + 1
+                return res, has_next
 
             except Exception as e:
                 logger.error(e)
