@@ -1,7 +1,8 @@
 import asyncio
 import logging
-from fastapi import APIRouter, status, Depends, BackgroundTasks
+from fastapi import APIRouter, status, Depends, BackgroundTasks, HTTPException
 from services.s1_service import S1Service
+import configs.logger
 from configs.config import config
 
 router = APIRouter()
@@ -20,12 +21,17 @@ async def process_requests(
     background_tasks: BackgroundTasks,
     s1_service: S1Service = Depends(),
 ) -> None:
-    tasks = [
-        s1_service.process_requests(i, config["buckets"])
-        for i in range(config["threads"])
-    ]
 
     async def run_async():
+        tasks = [
+            s1_service.process_requests(i, config["buckets"])
+            for i in range(config["threads"])
+        ]
         await asyncio.gather(*tasks)
+        config["in_progress"] = False
 
+    if config["in_progress"]:
+        raise HTTPException(status_code=409, detail="Request is already in processing")
+
+    config["in_progress"] = True
     background_tasks.add_task(run_async)
